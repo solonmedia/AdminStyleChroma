@@ -7,7 +7,7 @@ use Sabberworm\CSS\RuleSet\AtRuleSet;
 use Sabberworm\CSS\RuleSet\RuleSet;
 
 /**
-* @author Jacob Gorny, 11/3/2022
+* @author Jacob Gorny, 8/24/2023
 * @license Licensed under MIT
 * @link https://www.solon.media
 */
@@ -314,9 +314,15 @@ class AdminStyleChroma extends WireData implements Module, ConfigurableModule
     }
   }
 
-        //Based on RockFrontend Code
-
-        /** ##### webfont downloader ##### */
+/**
+ * 
+ *  Based on RockFrontend Google Font downloader functions
+ * 
+ *  MIT License
+ * 
+ *  Copyright (c) 2020 baumrock.com
+ * 
+ */
 
         public function createWebfontFiles(HookEvent $event)
         {
@@ -620,7 +626,11 @@ class AdminStyleChroma extends WireData implements Module, ConfigurableModule
           return str_replace("{size}", wireBytesStr($size, true), $out);
         }
 
-        /** ##### END webfont downloader ##### */
+/**
+ * 
+ *  End RockFrontend Code
+ * 
+ */
 
         private function checkColor( $color ) {
           $out = null;
