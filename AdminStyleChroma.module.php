@@ -19,20 +19,6 @@ class AdminStyleChroma extends WireData implements Module, ConfigurableModule
 
   // Module info
 
-  const webfont_agents = [
-    'woff2' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.0', // very modern browsers
-    'woff' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0', // modern browsers
-    'ttf' => 'Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) Safari/538.1 Daum/4.1', // safari, android, ios
-    'svg' => 'Mozilla/4.0 (iPad; CPU OS 4_0_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/4.1 Mobile/9A405 Safari/7534.48.3', // legacy ios
-    'eot' => 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0)', // IE
-  ];
-  const webfont_comments = [
-    'woff2' => '/* Super Modern Browsers */',
-    'woff' => '/* Pretty Modern Browsers */',
-    'ttf' => '/* Safari, Android, iOS */',
-    'svg' => '/* Legacy iOS */',
-  ];
-
   public static function getModuleInfo()
   {
     return [
@@ -323,6 +309,20 @@ class AdminStyleChroma extends WireData implements Module, ConfigurableModule
  *  Copyright (c) 2020 baumrock.com
  * 
  */
+
+  const webfont_agents = [
+    'woff2' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.0', // very modern browsers
+    'woff' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0', // modern browsers
+    'ttf' => 'Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) Safari/538.1 Daum/4.1', // safari, android, ios
+    'svg' => 'Mozilla/4.0 (iPad; CPU OS 4_0_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/4.1 Mobile/9A405 Safari/7534.48.3', // legacy ios
+    'eot' => 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0)', // IE
+  ];
+  const webfont_comments = [
+    'woff2' => '/* Super Modern Browsers */',
+    'woff' => '/* Pretty Modern Browsers */',
+    'ttf' => '/* Safari, Android, iOS */',
+    'svg' => '/* Legacy iOS */',
+  ];
 
         public function createWebfontFiles(HookEvent $event)
         {
