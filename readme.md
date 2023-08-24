@@ -1,6 +1,6 @@
 # Admin Style Chroma
 
-This module provides a user interface to control the colors and typography of the AdminThemeUIKit backend theme for ProcessWire 3.0. It makes use of a heavily modified version of [Bernhard Baumrock](https://github.com/baumrock/AdminStyleRock)'s method (found in RockFrontend) for procuring Google Font files and saving them on your server. After looking at his references on CSSTricks is was pretty clear that the header manipulation approach was going to be the best one.
+This module provides a user interface to control the colors and typography of the AdminThemeUIKit backend theme for ProcessWire 3.0.
 
 The requirements are:
 
@@ -95,6 +95,8 @@ The drop down selectors here will detect css stylesheets found in your ste/asset
 If you select "No Custom Font" for either the Header Font or the Body Text Font, the default AdminThemeUiKit font rules will apply.
 
 ## Add Google Fonts
+
+This feature makes use of a modified version of [Bernhard Baumrock](https://github.com/baumrock/AdminStyleRock)'s method (found in RockFrontend) for procuring Google Font files and saving them on your server. After looking at his references on CSSTricks is was pretty clear that the header manipulation approach was going to be the best one.
 
 When first installed and run, the Admin Style Chroma module will download json lists of Google Font options and cache them in your site/assets directory. There is currently no method in place to check for new fonts, so if for some reason you are not seeing a Google Font you want to use, deleting this file should force the module to repopulate it:
 
