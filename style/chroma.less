@@ -1,0 +1,737 @@
+
+//Grab Rock style - although that may change since I don't like all of it.
+
+@import "../../../../wire/modules/AdminTheme/AdminThemeUikit/uikit-pw/styles/rock.less";
+
+//Grab any custom font
+
+@import (optional) "@{heading-font-style-path}";
+@import (optional) "@{body-font-style-path}";
+
+// @base-color - variable for rock-primary and alfred-editing
+// @base-color2 - variable for default background
+// @color-scheme - variable to select appropriate coloring profile
+// @lum-direction - dark to light (light theme) or light to dark (dark theme)
+// @sat-level - vibrant or subdued colors
+
+/**
+
+The primary color is baseline.
+
+Three levels above, three levels below. Direction depends on luminance
+
+Saturation follows from background color sets.
+
+**/
+
+@default-lighter-text: #fff;
+@default-light-text: #ddd; //Default text for dark themes
+@default-dark-text: #444;
+@default-darker-text: #222; //Default text for light themes
+
+@rock-primary: @base-color;
+
+/**
+ * set type of scheme
+ * single
+ * contrast
+ * duotone
+ * harmonycool
+ * harmonywarm
+ */
+
+@import "./color-@{color-scheme}.less";
+
+/**
+ * set luminance direction
+ * light-to-dark
+ * dark-to-light
+ */
+
+@import "./@{lum-direction}.less";
+
+/**
+ * set saturation level
+ * vibrant
+ * subdued
+ */
+
+@import "./@{sat-level}.less";
+
+/**
+Set colors for LESS
+**/
+
+@chroma-default: @chroma-sat-lum-6; //used in general body backgrounds
+@chroma-default-hover: @chroma-sat-lum-7;
+@chroma-primary: @chroma-sat-lum-3; //used on buttons, panels
+@chroma-primary-hover: @chroma-sat-lum-4;
+@chroma-secondary: @chroma-sat-lum-1; //used on unfocused elements, secondary buttons
+@chroma-secondary-hover: @chroma-sat-lum-2;
+@chroma-muted: @chroma-sat-lum-7; //used on header, header rows, form chrome
+@chroma-muted-hover: @chroma-sat-lum-8;
+
+@default-regular-text-color: contrast(@chroma-default, @default-dark-text, @default-light-text);
+@default-strong-text-color: contrast(@chroma-default, @default-darker-text, @default-lighter-text);
+
+@default-heading-color: contrast(@chroma-default, @default-lighter-text, @default-darker-text);
+
+@default-link-text-color: @chroma-contrast-link-color;
+@default-link-text-color-hover: @chroma-contrast-link-color-hover;
+
+@primary-regular-text-color: contrast(@chroma-primary, @default-dark-text, @default-light-text);
+@primary-strong-text-color: contrast(@chroma-primary, @default-darker-text, @default-lighter-text);
+
+@secondary-regular-text-color: contrast(@chroma-secondary, @default-dark-text, @default-light-text);
+@secondary-strong-text-color: contrast(@chroma-secondary, @default-darker-text, @default-lighter-text);
+
+@muted-regular-text-color: contrast(@chroma-muted, @default-dark-text, @default-light-text);
+@muted-strong-text-color: contrast(@chroma-muted, @default-darker-text, @default-lighter-text);
+
+@chroma-interface-color: @chroma-primary;
+@chroma-background-color: @chroma-default;
+@chroma-chrome-background-color: @chroma-muted;
+@chroma-form-background-color: @chroma-muted-hover;
+@chroma-accent-background-color: @chroma-secondary-hover;
+
+/** UIKit/PW Classes start here**/
+
+@global-background: @chroma-default;
+@global-primary-background: @chroma-primary;
+@global-secondary-background: @chroma-secondary;
+@global-muted-background: @chroma-muted;
+
+@global-color: @default-regular-text-color;
+
+@global-link-color: @default-link-text-color;
+@global-link-hover-color: @default-link-text-color-hover;
+
+@global-inverse-color: @muted-strong-text-color;
+@global-muted-color: @muted-regular-text-color;
+@global-emphasis-color: @default-strong-text-color;
+
+@base-selection-background: @chroma-background-color;
+
+@base-selection-color: @default-regular-text-color;
+
+@button-primary-background: @chroma-primary;
+@button-primary-color: @primary-regular-text-color;
+@button-primary-hover-background: @chroma-primary-hover;
+@button-primary-hover-color: @primary-strong-text-color;
+@button-secondary-background: @chroma-secondary;
+@button-secondary-color: @secondary-regular-text-color;
+@button-secondary-hover-background: @chroma-secondary-hover;
+@button-secondary-hover-color: @secondary-strong-text-color;
+
+@form-select-icon-color: @global-color;
+@form-select-option-color: @global-color;
+@form-select-disabled-icon-color: @global-muted-background;
+
+@tab-active-item-color: @chroma-accent-background-color;
+@tab-active-item-color: yellow;
+
+@base-body-background: @global-background;
+@base-body-color: @global-color;
+
+@base-heading-color: @default-heading-color;
+@base-heading-text-transform: none;
+
+@pw-body-background: @global-background;
+@pw-dropdown-background: @chroma-chrome-background-color;
+
+@pw-page-list-padding: 4px 3px 4px 3px;
+@pw-page-list-item-border: 2px solid @chroma-chrome-background-color;
+@pw-page-list-item-open-border-color: @rock-primary;
+@pw-page-list-item-hover-border-color: @chroma-chrome-background-color;
+
+@pw-page-list-action-link-color: @primary-regular-text-color;
+@pw-page-list-action-link-hover-color: @default-link-text-color;
+@pw-page-list-action-link-background-color: @global-primary-background;
+@pw-page-list-action-link-hover-background-color: @global-background;
+
+@pw-button-background: @button-primary-background;
+@pw-button-color: @button-primary-color;
+@pw-button-hover-background: @button-primary-hover-background;
+@pw-button-hover-color: @button-primary-hover-color;
+@pw-button-secondary-background: @button-secondary-background;
+@pw-button-secondary-color: @button-secondary-color;
+@pw-button-secondary-hover-background: @button-secondary-hover-background;
+@pw-button-secondary-hover-color: @button-secondary-hover-color;
+
+@alert-primary-color: @muted-strong-text-color;
+
+
+
+.chroma {
+
+  html,body {
+    background:  @chroma-chrome-background-color;
+  }
+
+  .uk-tab > li.uk-active {
+    background: @chroma-accent-background-color;
+    color: @secondary-regular-text-color;
+  }
+
+  .uk-tab > li.uk-active a {
+    color: @button-secondary-color;
+    font-weight: bold;
+  }
+
+  input.uk-radio:checked,
+  input.uk-checkbox:checked,
+  input.uk-checkbox:indeterminate {
+    background-color: transparent;
+    border-color: @default-regular-text-color;
+  }
+
+  span.select2.selection > span {
+    background: @chroma-accent-background-color;
+  }
+
+  mark {
+    background: @global-primary-background;
+    color: @global-inverse-color;
+  }
+
+  pre code.language-bash {
+    background-color: @global-emphasis-color;
+    color: @chroma-chrome-background-color;
+  }
+
+  .pw-panel-content {
+    background: @chroma-background-color;
+  }
+
+  .ui-widget-content {
+    background: @chroma-chrome-background-color;
+    color: @muted-strong-text-color;
+  }
+
+  button.ui-button.ui-priority-secondary {
+    background-color: @button-primary-background !important;
+    color: @button-primary-color;
+  }
+
+  .pw-content {
+   li.ui-state-default, li.ui-state-hover {
+    color: @primary-regular-text-color;
+      a {
+          color: @primary-regular-text-color;
+      }
+   }
+  }
+
+  .pw-notices {
+    list-style: none;
+    padding-left: 0;
+    margin: 3px 0;
+    li {
+      list-style: none;
+      padding-left: 0;
+      padding-right: 0 !important;
+      margin: 3px 0;
+    }
+    .pw-notice-remove,
+    .notice-remove {
+      float: right;
+      color: @global-color;
+      margin-left: 10px;
+    }
+    .uk-alert-primary {
+      .notice-remove {
+        color: @muted-strong-text-color;
+      }
+    }
+    .uk-alert-warning {
+      .notice-remove {
+        color: @text-warning-color;
+      }
+    }
+    .uk-alert-danger {
+      .notice-remove {
+        color: @text-danger-color;
+      }
+      a {
+        color: @inverse-global-color;
+      }
+    }
+    .pw-notice-group-toggle {
+      font-size: @global-small-font-size;
+      text-transform: uppercase;
+      font-weight: bold;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+
+/**
+ * Wire Module Styles
+ */
+
+ //Awesomeplete for autocomplete modules
+
+   .awesomplete > ul {
+   	background: @chroma-form-background-color;
+   	background: linear-gradient(to bottom right, @global-background, @chroma-chrome-background-color);
+   	border: 1px solid @chroma-interface-color;
+   	box-shadow: .05em .2em .6em rgba(0,0,0,.2);
+   }
+
+   .awesomplete > ul:before {
+     background: @global-background;
+   }
+
+    .awesomplete mark, .awesomplete li[aria-selected="true"] mark {
+      background: @global-primary-background;
+    }
+
+// Highlight colors
+
+.InputfieldIsHighlight:not(.InputfieldNoBorder)>.InputfieldHeader,
+.InputfieldIsHighlight:not(.InputfieldNoBorder)>.InputfieldContent {
+  background: @chroma-form-background-color;
+}
+
+   //Inputfield image scss override
+
+   .gridImage {
+     &__tooltip {
+       background: @global-muted-background;
+       border: @global-color 1px solid;
+       table {
+         th, td {
+           background: @global-muted-background !important;
+           color: @global-color;
+         }
+       }
+     }
+   }
+
+   .InputfieldImageEdit {
+     &__inner {
+       background: @global-muted-background;
+       border: @global-color 1px solid;
+     }
+   }
+
+   //ProcessModule scss override
+
+  a span.not_installed * {
+      text-decoration: line-through;
+  }
+  a:hover span.not_installed * {
+      text-decoration: none;
+  }
+
+  .InputfieldIconAll .fa.fw {
+    background: @global-muted-background;
+  }
+
+  .PageList .PageListItemOpen>a.PageListPage,
+  .PageList .PageListItemOpen.PageListItemHover>a.PageListPage,
+  .PageList .PageListItemOpen>a.PageListPage:hover,
+  .PageList .PageListItemOpen.PageListItemHover>a.PageListPage:hover {
+    color: @muted-strong-text-color;
+    text-decoration: none;
+  }
+
+  .PageListSortItem>a.PageListPage {
+    background-color: @global-secondary-background;
+    cursor: move;
+  }
+
+  .PageList .PageListItemHover.PageListSortItem>a.PageListPage {
+    color: @secondary-strong-text-color;
+  }
+
+  .PageListSortPlaceholder {
+    background-color: @global-secondary-background;
+    height: 1em;
+    width: auto;
+    border-left: 2px solid @global-muted-background;
+  }
+
+//Pro Module Overrides
+
+  #RepeaterMatrixItems .MatrixItem, #RepeaterMatrixItems .MatrixItem>.InputfieldHeader, #RepeaterMatrixItems .MatrixItem>.InputfieldContent {
+    background: @global-background;
+  }
+
+//TinyMCE mods
+
+.mce-content-body {
+  background-color: @global-muted-background;
+  color: @global-color;
+}
+
+.mce-content-body a {
+  color: @global-link-color;
+}
+
+.tox.tox-tinymce-inline .tox-editor-header, .tox .tox-menubar, .tox .tox-toolbar__primary, .tox .tox-toolbar-overlord, .tox .tox-menu {
+  background-color: @global-muted-background;
+}
+
+.tox.tox-tinymce-inline .tox-editor-header, .tox .tox-menu {
+  border: 2px solid @global-background;
+}
+
+.tox .tox-tbtn--bespoke {
+  background-color: @button-secondary-background;
+  color: @button-secondary-color;
+}
+
+.tox .tox-tbtn:hover {
+  background-color: @button-primary-background
+}
+
+.tox .tox-tbtn--enabled, .tox .tox-collection--list .tox-collection__item--enabled {
+  background-color: @button-secondary-background;
+  color: @button-secondary-color;
+}
+
+.tox .tox-tbtn--enabled svg, .tox .tox-tbtn__select-chevron svg, .tox .tox-collection--list .tox-collection__item--enabled svg {
+  fill: @button-secondary-color;
+}
+
+.tox .tox-tbtn--enabled:hover {
+  background-color: @button-primary-background;
+}
+
+.tox .tox-mbtn:hover:not(:disabled):not(.tox-mbtn--active), .tox .tox-mbtn--active, .tox .tox-collection--list .tox-collection__item--active, .tox .tox-mbtn:focus:not(:disabled) {
+  background: @button-primary-background;
+  color: @button-primary-color;
+}
+
+/**
+ * Site Module Styles
+ */
+
+//Tracy Debugger
+
+#tracy-quick-links .InputfieldContent ul li a {
+  background: @global-muted-background;
+  color: @global-muted-color;
+}
+
+#tracy-quick-links .InputfieldContent ul li a:hover {
+  background: @button-secondary-background;
+  color: @button-secondary-color
+}
+
+#tracy-quick-links .InputfieldContent ul li a.active {
+  background: @button-primary-background;
+  color: @button-primary-color;
+}
+
+//Dashboard
+
+  .Dashboard__panel {
+    background-color: #444;
+
+    .uk-card-header {
+      background-color: @global-muted-background;
+    }
+    .uk-card-body {
+      background-color: @global-secondary-background;
+    }
+
+  }
+
+  .Dashboard a.uk-card {
+    background-color: darken(@global-background,5%);
+  }
+
+//Page Hit Counter
+
+div.pageListHitCounterWrapper span.pageListHitCounter {
+  background: @chroma-interface-color;
+  color: @primary-strong-text-color;
+}
+
+div.pageListHitCounterWrapper span.pageListHitCounter i {
+  color: @primary-strong-text-color !important;
+}
+
+//Release Notes Changes
+
+  .release-notes pre {
+    background-color: darken(@global-background, 5%);
+    color: @global-color;
+  }
+
+  //AOS Theme Changes
+
+  #wrap_Inputfield_enabledSubmodules>label, #wrap_Inputfield_enabledSubmodules>.InputfieldContent {
+      background: lighten(@global-background, 5%);
+  }
+  #Inputfield_tweaks>.InputfieldContent>.Inputfields>li>label.InputfieldHeader {
+      background: lighten(@global-background, 5%);
+  }
+
+  //Admin Helper Link Changes
+  .ahl__link,
+  .ahl__link:hover,
+  .ahl__link:active,
+  .ahl__link:visited {
+      color: @global-color !important;
+    }
+
+    .ahl__template {
+      height: 1.5em !important;
+      display: inline-block;
+    }
+
+  //SearchEngine Changes
+
+    .pwse-operator-details__list-item {
+      padding-left: 1.5em;
+    }
+    .pwse-operator-details__list-item--active {
+      background-color: @button-secondary-background;
+      color: @button-secondary-color;
+    }
+    .pwse-operator-details__button {
+      background-color: @button-primary-background;
+      color: @button-primary-color;
+    }
+
+  //Color Spectrum Changes
+
+  .spectrum {
+    background-color: @global-muted-background;
+    color: @button-primary-color;
+  }
+  .sp-replacer:hover,
+  .sp-replacer.sp-active {
+    border-color: @global-primary-background;
+    color: @button-primary-color;
+  }
+  .sp-palette-container {
+    border-right: solid 1px @global-background;
+  }
+  .sp-picker-container {
+    border-left: solid 1px @global-background;
+  }
+  .sp-container {
+    border-color: @global-primary-background;
+  }
+  .sp-input {
+    color: @button-primary-color;
+  }
+
+  //Easy Repeater Sort
+
+  .Inputfields .InputfieldRepeater.RepeaterEasySort .easy-sort-mode i
+  {
+    color: @global-primary-background;
+  }
+
+  .Inputfields .InputfieldRepeater.RepeaterEasySort .easy-sort-mode i:hover {
+    color: @global-secondary-background;
+  }
+
+}
+
+//Outside due to rules.
+
+    body.chroma.Dashboard {
+      background-color: @global-background;
+    }
+
+//TinyMCE changes (must be outside because of html.pw specificity
+
+html.pw body.chroma .InputfieldTinyMCE .InputfieldContent {
+  background-color: #111;
+}
+
+//AOS Theme Changes (must be outside .dark because of html.aos specificity)
+
+html.highlightRows .chroma {
+    .PageListItem:hover, .AdminDataTable.AdminDataList tr:hover td {
+      background: @global-muted-background;
+    }
+  }
+
+html.moduleCompact form#modules_form table.AdminDataList .buttons button[name="delete"] {
+  color: @default-light-text;
+}
+
+html.moduleCompact form#modules_form table.AdminDataList .buttons button[name="delete"]:hover {
+  color: @default-lighter-text;
+}
+
+html.aos body.chroma.AdminThemeUikit .tox-collection__item-label h1 {
+    max-width: unset;
+}
+
+html.aos .chroma {
+   .quicklinks [data-pid]:after, .PageListRoot [data-pid]:after, .ui-menu [data-pid]:after {
+    color: rgba(255,255,255,0.57);
+  }
+
+  div.filterbox input {
+     background: @global-secondary-background url("/site/modules/AdminOnSteroids/images/search.svg") 0.48rem 48% no-repeat !important;
+     background-size: 1.24rem 1.24rem !important;
+     padding-left: 2rem !important;
+     color: @button-secondary-color;
+  }
+
+  div.filterbox input::placeholder {
+     color: @button-secondary-color;
+  }
+
+  div.filterbox input:focus {
+    background-color: @global-primary-background !important;
+    color: @button-primary-color;
+  }
+
+  #wrap_Inputfield_enabledSubmodules .InputfieldCheckboxesStacked input:checked+span:before {
+    background: @global-background !important;
+  }
+
+  #wrap_Inputfield_enabledSubmodules>.InputfieldContent label strong, #wrap_Inputfield_enabledSubmodules>.InputfieldContent label {
+    color: @button-link-color;
+  }
+
+  .configLink i {
+    color: @global-link-color !important;
+  }
+
+  #wrap_Inputfield_enabledSubmodules .asmSelect * {
+    color: @global-link-color;
+    background-color: @global-background
+  }
+
+}
+
+html.moduleCompact .chroma {
+    form#modules_form table.AdminDataList td:first-child a span {
+       display: inline-block;
+       margin-right: .5em;
+    }
+    form#modules_form table.AdminDataList span.ConfigurableModule:after {
+        transform-origin: center;
+        backface-visibility: hidden;
+        content: "\f013";
+        font-family: FontAwesome, sans-serif;
+        position: absolute;
+        font-size: 1rem;
+        display: inline-block;
+        color: @global-link-color;
+        margin-top: 0;
+        margin-left: 0.3rem;
+        animation: spinOut 0.5s forwards;
+    }
+    button[name="delete"] {
+      color: contrast(#B93E42, @default-dark-text, @global-color);
+    }
+  }
+
+//Page view statistics
+#pvs_filter select, #id_pageselect1, #id_pageselect2  {
+  background-color: @global-primary-background;
+  color: @global-color;
+  border: none;
+}
+
+button#pvs_update {
+  background-color: @global-secondary-background;
+  color: @global-background;
+  border:none;
+}
+
+.pvs_thead .pvs_th {
+  background-color: @global-muted-background;
+}
+
+.pvs_tr .pvs_tt, .pvs_tr .pvs_td {
+  color: @global-muted-background;
+}
+
+.pw-search-form input[type="text"] {
+  background-color:inherit;
+  border-radius:inherit;
+}
+
+//Nette Tests
+
+#pnt-table tbody tr:nth-of-type(odd), .uk-table-striped tbody tr:nth-of-type(odd), .uk-table-striped>tr:nth-of-type(odd) {
+  background: @global-secondary-background !important;
+  color: @global-muted-background;
+}
+#pnt-table tbody tr:nth-of-type(odd):hover, .uk-table-striped tbody tr:nth-of-type(odd):hover, .uk-table-striped>tr:nth-of-type(odd):hover {
+  color: @global-color;
+}
+
+//Module Palette styles
+
+.sl1 {
+  background-color: @chroma-sat-lum-1;
+  color: @secondary-regular-text-color
+}
+.sl2 {
+  background-color: @chroma-sat-lum-2;
+  color: @secondary-regular-text-color
+}
+.sl3 {
+  background-color: @chroma-sat-lum-3;
+  color: @secondary-regular-text-color
+}
+.sl4 {
+  background-color: @chroma-sat-lum-4;
+  color: @secondary-regular-text-color
+}
+.sl5 {
+  background-color: @chroma-sat-lum-5;
+}
+.sl6 {
+  background-color: @chroma-sat-lum-6;
+}
+.sl7 {
+  background-color: @chroma-sat-lum-7;
+}
+.sl8 {
+  background-color: @chroma-sat-lum-8;
+}
+
+.chroma-primary-color {
+  background-color: @chroma-primary;
+  color: @primary-regular-text-color;
+}
+.chroma-secondary-color {
+  background-color: @chroma-secondary;
+  color: @secondary-regular-text-color;
+}
+.chroma-muted-color {
+  background-color: @chroma-muted;
+  color: @muted-regular-text-color;
+}
+.chroma-default-color {
+  background-color: @chroma-default;
+  color: @default-regular-text-color;
+}
+.chroma-header-color {
+  background-color: @chroma-muted-hover;
+  color: @muted-strong-text-color;
+}
+.chroma-background-color {
+  background-color: @chroma-secondary-hover;
+  color: @secondary-strong-text-color;
+}
+.chroma-primary-color:hover {
+  background-color: @chroma-primary-hover;
+}
+.chroma-secondary-color:hover {
+  background-color: @chroma-secondary-hover;
+}
+.chroma-muted-color:hover {
+  background-color: @chroma-muted-hover;
+}
+.chroma-default-color:hover {
+  background-color: @chroma-default-hover;
+}
+

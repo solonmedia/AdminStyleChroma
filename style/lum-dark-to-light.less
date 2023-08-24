@@ -1,0 +1,34 @@
+/** 
+
+Luminance dark to light
+
+dark
+
+chroma-lum-1
+chroma-lum-2
+chroma-lum-3 base-color
+chroma-lum-4
+chroma-lum-5
+chroma-lum-6 base-background
+chroma-lum-7
+chroma-lum-8
+
+light
+
+**/
+
+@base-background-light: desaturate(lighten(@base-background, 25%), 10%);
+
+@chroma-lum-1: darken(@base-color, 20);
+@chroma-lum-2: darken(@base-color, 10%);
+@chroma-lum-3: @base-color;
+@chroma-lum-4: lighten(@base-color, 10%);
+@chroma-lum-5: darken(@base-background-light, 10%);
+@chroma-lum-6: @base-background-light;
+@chroma-lum-7: lighten(@base-background-light, 10%);
+@chroma-lum-8: lighten(@base-background-light, 20%);
+
+@dark-link-color: @chroma-lum-1;
+@light-link-color: @chroma-lum-4;
+@chroma-contrast-link-color: contrast(@chroma-lum-6, @dark-link-color, @light-link-color);
+@chroma-contrast-link-color-hover: darken(@chroma-contrast-link-color,10%);
