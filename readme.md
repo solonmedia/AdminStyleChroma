@@ -117,7 +117,7 @@ If you make selections (or don't) and select a font that you have already downlo
 **PLEASE NOTE**
 : If you download a lot of fonts, this process could take some time.
 
-## Style Compatability
+## Style Compatibility
 
 A lot of styles have already been corrected. A number of styles within the ProcessWire core that use plain css or scss have been overwritten via specificity. A 'chroma' class is also added to the body tag, which drives many of the newly inherited classes, but due to the design of some features of certain modules there are other classes defined outside of the heirs of this class.
 
