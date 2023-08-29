@@ -19,7 +19,7 @@ light
 
 @base-background-light: desaturate(lighten(@base-background, 25%), 10%);
 
-@chroma-lum-1: darken(@base-color, 20);
+@chroma-lum-1: darken(@base-color, 20%);
 @chroma-lum-2: darken(@base-color, 10%);
 @chroma-lum-3: @base-color;
 @chroma-lum-4: lighten(@base-color, 10%);
@@ -28,7 +28,7 @@ light
 @chroma-lum-7: lighten(@base-background-light, 10%);
 @chroma-lum-8: lighten(@base-background-light, 20%);
 
-@dark-link-color: @chroma-lum-1;
-@light-link-color: @chroma-lum-4;
+@dark-link-color: darken(@chroma-lum-1,10%);
+@light-link-color: @chroma-lum-3;
 @chroma-contrast-link-color: contrast(@chroma-lum-6, @dark-link-color, @light-link-color);
 @chroma-contrast-link-color-hover: darken(@chroma-contrast-link-color,10%);
