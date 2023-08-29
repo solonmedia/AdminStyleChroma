@@ -23,7 +23,7 @@ class AdminStyleChroma extends WireData implements Module, ConfigurableModule
   {
     return [
       'title' => 'Admin Style Chroma',
-      'version' => '1.0.1',
+      'version' => '1.0.2',
       'summary' => 'Chroma enables multiple calculated palette options for light and dark themes from simple base color selections based on the AdminThemeUIKit administrative backend theme.',
       'author' => 'Jacob Gorny',
       'href' => 'https://github.com/solonmedia/AdminStyleChroma',
