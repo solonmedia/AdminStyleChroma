@@ -63,7 +63,7 @@ Set colors for LESS
 **/
 
 @chroma-default: @chroma-sat-lum-6; //used in general body backgrounds
-@chroma-default-hover: @chroma-sat-lum-7;
+@chroma-default-hover: @chroma-sat-lum-5;
 @chroma-primary: @chroma-sat-lum-3; //used on buttons, panels
 @chroma-primary-hover: @chroma-sat-lum-4;
 @chroma-secondary: @chroma-sat-lum-1; //used on unfocused elements, secondary buttons
@@ -110,9 +110,9 @@ Set colors for LESS
 @global-muted-color: @muted-regular-text-color;
 @global-emphasis-color: @default-strong-text-color;
 
-@base-selection-background: @chroma-background-color;
+@base-selection-background: @chroma-interface-color;
 
-@base-selection-color: @default-regular-text-color;
+@base-selection-color: @primary-strong-text-color;
 
 @button-primary-background: @chroma-primary;
 @button-primary-color: @primary-regular-text-color;
@@ -168,6 +168,15 @@ Set colors for LESS
     background:  @chroma-chrome-background-color;
   }
 
+    .uk-tab::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 20px;
+      right: 0;
+      border-bottom: 1px solid @chroma-chrome-background-color;
+    }
+
   .uk-tab > li.uk-active {
     background: @chroma-accent-background-color;
     color: @secondary-regular-text-color;
@@ -185,9 +194,27 @@ Set colors for LESS
     border-color: @default-regular-text-color;
   }
 
+.uk-input,
+.uk-select,
+.uk-textarea {
+  border: 1px solid @chroma-default-hover;
+  background-color: @chroma-muted;
+  color: @muted-regular-text-color;
+}
+
+.Inputfield input[type=text]:not(.uk-input),
+.Inputfield input[type=email]:not(.uk-input),
+.Inputfield input[type=date]:not(.uk-input),
+.Inputfield input[type=datetime]:not(.uk-input),
+.Inputfield input[type=number]:not(.uk-input),
+.Inputfield input[type=url]:not(.uk-input) {
+  border: 1px solid @chroma-default-hover;
+  background-color: @chroma-muted;
+  color: @muted-regular-text-color;
+}
+
   span.select2.selection > span {
     background: @chroma-accent-background-color;
-    color: @secondary-strong-text-color;
   }
 
   mark {
@@ -311,12 +338,28 @@ Set colors for LESS
      }
    }
 
+.gridImage__tooltip:after {
+  border-top-color: @global-color;
+}
+
    .InputfieldImageEdit {
      &__inner {
        background: @global-muted-background;
        border: @global-color 1px solid;
      }
    }
+
+.InputfieldImageEdit__arrow {
+  bottom: 100%;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border: .5em solid rgba(255, 255, 255, 0);
+  border-bottom-color: @global-color;
+  transform: translate(-50%, 0);
+}
 
    //ProcessModule scss override
 
@@ -355,22 +398,54 @@ Set colors for LESS
     border-left: 2px solid @global-muted-background;
   }
 
+.PageList .PageListActions a,
+.PageList .PageListerActions a,
+.PageList .PageListMoveNote a {
+  color: @default-strong-text-color;
+}
+
 //Pro Module Overrides
 
   #RepeaterMatrixItems .MatrixItem, #RepeaterMatrixItems .MatrixItem>.InputfieldHeader, #RepeaterMatrixItems .MatrixItem>.InputfieldContent {
-    background: @global-background;
+    background: @chroma-default-hover;
+    color: @default-strong-text-color;
+  }
+
+.InputfieldHeader.InputfieldStateToggle i.toggle-icon {
+  float: right;
+  padding-right: 0.25em;
+  padding-right: 0.5em;
+  margin-right: 0;
+  color: @default-strong-text-color;
+  line-height: 1.5;
+}
+
+.Inputfields .InputfieldRepeater .InputfieldContent .InputfieldRepeaterItem>.InputfieldHeader {
+  border: none;
+  background: @chroma-default-hover;
+  color: @default-strong-text-color;
+  outline: 1px solid #152517;
+  outline-color: @chroma-default-hover;
+}
+
+.Inputfields .InputfieldRepeater .InputfieldContent .InputfieldRepeaterItem>.InputfieldHeader.ui-state-error {
+  text-decoration: line-through;
+  background: #f0506e;
+  color: #ffffff;
+  border: none;
+  outline-color: #f0506e;
   }
 
 .Inputfields .InputfieldRepeater .InputfieldContent .InputfieldRepeaterItem>.InputfieldHeader {
   border: none;
-  background: @chroma-primary;
-  color: @primary-strong-text-color;
+  background: @chroma-default-hover;
+  color: @default-strong-text-color;
   outline: 1px solid #152517;
-  outline-color: @chroma-primary;
+  outline-color: @chroma-default-hover;
 }
 
 .Inputfields .InputfieldRepeater .InputfieldContent .InputfieldRepeaterItem>.InputfieldHeader i.toggle-icon {
-  color: @primary-strong-text-color;
+  color: @default-strong-text-color;
 }
 
 //TinyMCE mods
@@ -551,6 +626,10 @@ div.pageListHitCounterWrapper span.pageListHitCounter i {
 
 //Outside due to rules.
 
+    body.chroma:not(.pw-narrow-width) .PageList .PageListItem.PageListHasChildren:not(.PageListItemOpen)>a.PageListPage:before {
+      color: @default-strong-text-color;
+    }
+
     body.chroma.Dashboard {
       background-color: @global-background;
     }
@@ -583,7 +662,7 @@ html.aos body.chroma.AdminThemeUikit .tox-collection__item-label h1 {
 
 html.aos .chroma {
    .quicklinks [data-pid]:after, .PageListRoot [data-pid]:after, .ui-menu [data-pid]:after {
-    color: rgba(255,255,255,0.57);
+    color: @default-regular-text-color;
   }
 
   div.filterbox input {
