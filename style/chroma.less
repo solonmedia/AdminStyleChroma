@@ -294,6 +294,15 @@ Set colors for LESS
     }
   }
 
+.vex.vex-theme-default .vex-content {
+  background: @chroma-secondary;
+  color: @secondary-strong-text-color;
+}
+
+.vex-dialog-button.vex-dialog-button-primary {
+  background: @chroma-primary;
+  color: @primary-strong-text-color;
+}
 
 /**
  * Wire Module Styles
@@ -401,6 +410,12 @@ Set colors for LESS
 .PageList .PageListActions a,
 .PageList .PageListerActions a,
 .PageList .PageListMoveNote a {
+  color: @primary-strong-text-color;
+}
+
+.PageList .PageListActions a:hover,
+.PageList .PageListerActions a:hover,
+.PageList .PageListMoveNote a:hover {
   color: @default-strong-text-color;
 }
 
@@ -469,16 +484,37 @@ Set colors for LESS
 
 .tox .tox-tbtn--bespoke {
   background-color: @button-secondary-background;
-  color: @button-secondary-color;
+  color: @secondary-regular-text-color;
 }
 
 .tox .tox-tbtn:hover {
-  background-color: @button-primary-background
+  background-color: @button-primary-background;
+  color: @primary-regular-text-color;
+}
+
+.tox .tox-collection--list .tox-collection__item--active:not(.tox-collection__item--state-disabled) {
+  color: @button-secondary-color;
 }
 
 .tox .tox-tbtn--enabled, .tox .tox-collection--list .tox-collection__item--enabled {
   background-color: @button-secondary-background;
-  color: @button-secondary-color;
+  color: @secondary-strong-text-color;
+}
+
+.tox .tox-collection__item-label>*:not(code) {
+  color: @muted-strong-text-color !important;
+}
+
+.tox .tox-collection__item-label:hover>*:not(code), .tox .tox-collection__item--enabled .tox-collection__item-label>*:not(code) {
+  color: @primary-strong-text-color !important;
+}
+
+.tox .tox-tbtn:hover svg {
+  fill: @primary-strong-text-color;
+}
+
+.tox .tox-collection__item-caret svg {
+  fill: @primary-strong-text-color;
 }
 
 .tox .tox-tbtn--enabled svg, .tox .tox-tbtn__select-chevron svg, .tox .tox-collection--list .tox-collection__item--enabled svg {
@@ -487,11 +523,12 @@ Set colors for LESS
 
 .tox .tox-tbtn--enabled:hover {
   background-color: @button-primary-background;
+  color: @primary-strong-text-color;
 }
 
 .tox .tox-mbtn:hover:not(:disabled):not(.tox-mbtn--active), .tox .tox-mbtn--active, .tox .tox-collection--list .tox-collection__item--active, .tox .tox-mbtn:focus:not(:disabled) {
   background: @button-primary-background;
-  color: @button-primary-color;
+  color: @primary-strong-text-color;
 }
 
 /**
